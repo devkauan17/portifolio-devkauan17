@@ -8,12 +8,18 @@ import 'swiper/css';
 import './style.css';
 import 'swiper/css/pagination';
 import certificates from '../../data/certificates';
+import projects from '../../data/projects';
 
 export default function Home() {
     return (
         <main className='page'>
             <header className='page-header'>
-
+                <h1 className='title-h1 gradient-text'>Portifólio</h1>
+                <ul className='header-ul'>
+                    <li className='header-li'><a className='header-link' href="#skills" >Habilidades</a></li>
+                    <li className='header-li'><a className='header-link' href="#certificates" >Certificados</a></li>
+                    <li className='header-li'><a className='header-link' href="#projects" >Projetos</a></li>
+                </ul>
             </header>
             <section className='content-page'>
                 <div className='content-initial center-align full-size'>
@@ -45,13 +51,13 @@ export default function Home() {
                     </div>
                 </section>
 
-                <section className=' content-skills mid-size center-align'>
+                <section className=' content-skills mid-size center-align' id='skills'>
                     <DividerTop />
                     <div className='content-cards'>
                         <h1 className='title-h1'>Habilidades</h1>
 
                         <Swiper
-                            className='skill-carousel'
+                            className='content-carousel'
                             modules={[Pagination, Autoplay]}
                             loop
                             spaceBetween={50}
@@ -73,12 +79,12 @@ export default function Home() {
                     <DividerBottom />
                 </section>
 
-                <section className='content-certificates mid-size center-align'>
+                <section className='content-certificates mid-size center-align' id='certificates'>
 
                     <section className='content-cards'>
                         <h1 className='title-h1'>Certificados</h1>
                         <Swiper
-                            className='skill-carousel'
+                            className='content-carousel'
                             modules={[Pagination, Autoplay]}
                             loop
                             spaceBetween={50}
@@ -102,16 +108,40 @@ export default function Home() {
                     </section>
                 </section>
 
-                <section className="content-projects mid-size center-align">
+                <section className="content-projects mid-size center-align" id='projects'>
+                    <DividerTop />
 
                     <section className="content-cards">
                         <h1 className='title-h1'>Projetos</h1>
+                        <Swiper
+                            className='content-carousel'
+                            modules={[Pagination, Autoplay]}
+                            loop
+                            spaceBetween={50}
+                            slidesPerView={3}
+                            autoplay={{ delay: 4000 }}
+                            pagination={{ clickable: false }}
+                        >
+                            {projects.map(project => {
+                                return (
+
+                                    <SwiperSlide className='card' key={project.id}>
+                                        <img className='project-image' src={project.image} alt={`${project.name} icon`} />
+                                        <h1 className='project-h1'>{project.name}</h1>
+                                        <div className='project-buttons'>
+                                            <a className='link project-link' href={project.linkRepo} target='_blank'>Repo</a>
+                                            <a className='link project-link' href={project.linkDeploy} target='_blank'>Deploy</a>
+                                        </div>
+                                    </SwiperSlide>)
+                            })}
+                        </Swiper>
                     </section>
 
                     <DividerBottom />
                 </section>
             </section>
-            <footer className='page-footer'>
+            <footer className='page-footer center-align'>
+                <span className='footer-span'>Portifólio | Kauan Rodrigues</span>
             </footer>
         </main>
     )
