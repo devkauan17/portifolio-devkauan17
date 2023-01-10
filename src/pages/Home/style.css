@@ -1,0 +1,149 @@
+.page {
+    max-width: 100vw;
+    min-height: 100vh;
+}
+
+.content-initial,
+.content-skills,
+.content-projects {
+    position: relative;
+}
+
+.content-apresentation,
+.content-cards,
+.content-certificates {
+    background-color: var(--color-bg);
+}
+
+.expand-more-arrow {
+    width: 40px;
+    position: absolute;
+    bottom: 5rem;
+    z-index: 2;
+    transition: all 5s;
+    animation: expand-arrow infinite 5s alternate;
+}
+
+@keyframes expand-arrow {
+    0% {
+        bottom: 5rem;
+    }
+
+    100% {
+        bottom: 8rem;
+    }
+}
+
+.apresentation-infos,
+.content-cards {
+    width: 70%;
+    max-width: 70%;
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+    margin: 6rem 0;
+}
+
+.apresentation-infos,
+.content-cards,
+.card {
+    box-shadow: 0px 14px 30px 5px rgba(0, 0, 0, 0.38);
+    border-radius: var(--default-border-radius);
+
+}
+
+.apresentation-texts {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    margin-right: 4rem;
+}
+
+.apresentation-title {
+    margin-bottom: 2rem;
+}
+
+.profile-image {
+    width: 50%;
+    border-radius: 50%;
+}
+
+.apresentation-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.9rem;
+}
+
+.content-cards {
+    flex-direction: column;
+}
+
+.card {
+    max-height: 400px;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    padding: 2rem;
+    transition: all .5s ease-in-out;
+}
+
+.card:hover {
+    background-color: var(--white);
+    color: var(--color-bg);
+
+    transform: scale(1.013);
+}
+
+.skill-image {
+    width: 150px;
+    margin-bottom: 1rem;
+}
+
+.skill-h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.skill-carousel {
+    width: 100%;
+}
+
+.swiper {
+    padding: 3rem;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--white) !important;
+}
+
+.certificate-image {
+    width: 100%;
+    border-radius: var(--default-border-radius);
+}
+
+.certificate-infos {
+    margin-top: 1rem;
+    display: flex;
+    text-align: center;
+
+}
+
+.certificate-h1 {
+    width: 100%;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+}
+
+.certificate-conclusion-year {
+    width: fit-content;
+    position: absolute;
+    top: 2.12rem;
+    right: 2.12rem;
+    padding: .5rem;
+    border-radius: var(--default-border-radius);
+    background-color: var(--color-bg);
+}
+
+.card:hover .certificate-conclusion-year {
+    color: var(--white);
+}

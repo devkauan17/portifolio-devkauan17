@@ -1,0 +1,25 @@
+.center-align,
+.vertical-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.vertical-align {
+    justify-content: unset;
+}
+
+
+.full-size,
+.mid-size {
+    max-width: 100vw;
+}
+
+.full-size {
+    height: 100vh;
+}
+
+.mid-size {
+    height: 85vh;
+}

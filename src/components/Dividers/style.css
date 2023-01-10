@@ -1,0 +1,37 @@
+.divider-top {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.divider-top svg {
+    position: relative;
+    display: block;
+    width: calc(150% + 1.3px);
+    height: 150px;
+}
+
+.divider-bottom {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.divider-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(147% + 1.3px);
+    height: 132px;
+}
+
+.divider-bottom,
+.divider-top .shape-fill {
+    fill: var(--color-bg);
+}

@@ -1,0 +1,10 @@
+body {
+    --white: #fff;
+    --black: #000;
+    --color-main: #c71818;
+    --color-main-1: #ed480c;
+    --color-bg: #0f0f0f;
+    --color-bg-button: #080808;
+    --gradient: linear-gradient(45deg, var(--color-main) 0%, var(--color-main-1) 54%);
+    --default-border-radius: .6rem;
+}
