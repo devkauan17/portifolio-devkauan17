@@ -9,17 +9,17 @@
 }
 
 .title-h2 {
+    font-size: 10rem;
     font-family: 'Teko', sans-serif;
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 10rem;
     line-height: 100%;
 }
 
 .gradient-text {
     color: transparent;
     background-clip: text;
-    background-size: 120% 100%;
+    background-size: 100%;
     -webkit-background-clip: text;
     background-image: var(--gradient);
 }

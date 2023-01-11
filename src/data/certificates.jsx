@@ -14,7 +14,7 @@ const certificates = [
     {
         id: 2,
         name: 'desenvolvimento de software - cubos academy',
-        image: 'https://f004.backblazeb2.com/file/portifolio-kauan/certificateimages/desenvolvimento+de+software+-+cubos+academy.jpg',
+        image: 'https://f004.backblazeb2.com/file/portifolio-kauan/certificateimages/desenvolvimento+de+software+-+cubos+academy.png',
         conclusionYear: 2022
     },
 ]

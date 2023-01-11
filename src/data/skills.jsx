@@ -27,7 +27,7 @@ const skills = [
         id: 4,
         name: 'nodejs',
         image: 'https://portifolio-kauan.s3.us-west-004.backblazeb2.com/skillsimages/nodejs.png',
-        description: 'Criação de Projetos e APIs REST com bibliotecas ( gerenciamento de banco de dados, criptografia, escopagem de api, manipulação de arquivos em servidores na nuvem ...)'
+        description: 'Criação de Projetos e APIs REST com bibliotecas ( gerenciamento de banco de dados, criptografia, escopagem de api, manipulação de arquivos blackblaze ...)'
     },
     {
         id: 5,

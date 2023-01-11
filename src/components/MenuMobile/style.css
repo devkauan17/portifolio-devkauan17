@@ -1,0 +1,29 @@
+.mobile-ul {
+    list-style: none;
+    gap: 3rem;
+}
+
+.mobile-li,
+.mobile-ul {
+    width: 100%;
+}
+
+.mobile-li {
+    text-align: center;
+}
+
+.mobile-link {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    width: 100%;
+    background-image: var(--gradient);
+    padding: 1rem 4rem;
+    border-radius: var(--default-border-radius)
+}
+
+.mobile-li:last-child img {
+    width: 4rem;
+}

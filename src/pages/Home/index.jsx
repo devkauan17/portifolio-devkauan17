@@ -1,28 +1,35 @@
 import expandMoreIcon from '../../assets/expandMoreIcon.png';
 import { DividerBottom, DividerTop } from '../../components/Dividers';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import skills from '../../data/skills';
-import { Pagination, Autoplay } from 'swiper';
 
+import { useState } from 'react';
 import 'swiper/css';
-import './style.css';
 import 'swiper/css/pagination';
+import './style.css';
+
+import CerticateModal from '../../components/CertificateModal';
+import SkillModal from '../../components/SkillModal';
 import certificates from '../../data/certificates';
 import projects from '../../data/projects';
-import { useState } from 'react';
-import CerticateModal from '../../components/CertificateModal';
+import menuIcon from '../../assets/menu-icon.png';
+import MenuMobile from '../../components/MenuMobile';
 
 export default function Home() {
 
-    const [certificateInfos, setCertificateInfos] = useState({
+    const initialValues = {
         show: false,
         content: {}
-    })
+    }
+
+    const [certificateInfos, setCertificateInfos] = useState(initialValues)
+    const [skillInfos, setSkillInfos] = useState(initialValues)
+    const [showMenu, setShowMenu] = useState(false)
 
     return (
         <main className='page'>
             <header className='page-header'>
                 <h1 className='title-h1 gradient-text'>Portifólio</h1>
+                <img className='menu-mobile' src={menuIcon} alt='menu icon' onClick={() => setShowMenu(!showMenu)} />
                 <ul className='header-ul'>
                     <li className='header-li'><a className='header-link' href="#skills" >Habilidades</a></li>
                     <li className='header-li'><a className='header-link' href="#certificates" >Certificados</a></li>
@@ -32,7 +39,7 @@ export default function Home() {
             <section className='content-page'>
                 <div className='content-initial center-align full-size'>
                     <h1 className='title-h1'>Portifólio Kauan Rodrigues</h1>
-                    <h1 className='title-h2 gradient-text'>Desenvolvedor Front-End</h1>
+                    <h1 className='title-h2 gradient-text'>Desenvolvedor <br />Front-End</h1>
                     <img className='expand-more-arrow' src={expandMoreIcon} alt='Expand more icon' />
                     <DividerBottom />
                 </div>
@@ -64,24 +71,20 @@ export default function Home() {
                     <div className='content-cards'>
                         <h1 className='title-h1'>Habilidades</h1>
 
-                        <Swiper
-                            className='content-carousel'
-                            modules={[Pagination, Autoplay]}
-                            loop
-                            spaceBetween={50}
-                            slidesPerView={3}
-                            autoplay={{ delay: 3000 }}
-                            pagination={{ clickable: false }}
-                        >
+                        <div className='content-carousel' >
+
+
                             {skills.map(skill => {
                                 return (
 
-                                    <SwiperSlide className='card' key={skill.id}>
+                                    <div className='card' key={skill.id} onClick={() => {
+                                        return setSkillInfos({ show: true, content: { ...skill } })
+                                    }}>
                                         <img className='skill-image' src={skill.image} alt={`${skill.name} icon`} />
                                         <h1 className='skill-h1'>{skill.name}</h1>
-                                    </SwiperSlide>)
+                                    </div>)
                             })}
-                        </Swiper>
+                        </div>
 
                     </div>
                     <DividerBottom />
@@ -91,19 +94,12 @@ export default function Home() {
 
                     <section className='content-cards'>
                         <h1 className='title-h1'>Certificados</h1>
-                        <Swiper
-                            className='content-carousel'
-                            modules={[Pagination, Autoplay]}
-                            loop
-                            spaceBetween={50}
-                            slidesPerView={3}
-                            autoplay={{ delay: 4000 }}
-                            pagination={{ clickable: false }}
-                        >
+                        <div className='content-carousel'>
+
                             {certificates.map(certificate => {
                                 return (
 
-                                    <SwiperSlide className='card' key={certificate.id} onClick={() => {
+                                    <div className='card card-certificate' key={certificate.id} onClick={() => {
                                         return setCertificateInfos({ show: true, content: { ...certificate } })
                                     }}>
                                         <img className='certificate-image' src={certificate.image} alt={`${certificate.name} icon`} />
@@ -111,9 +107,9 @@ export default function Home() {
                                             <span className='certificate-span'>{certificate.name}</span>
                                             <span className='certificate-span certificate-conclusion-year'>{certificate.conclusionYear}</span>
                                         </div>
-                                    </SwiperSlide>)
+                                    </div>)
                             })}
-                        </Swiper>
+                        </div>
 
                     </section>
                 </section>
@@ -123,28 +119,22 @@ export default function Home() {
 
                     <section className="content-cards">
                         <h1 className='title-h1'>Projetos</h1>
-                        <Swiper
-                            className='content-carousel'
-                            modules={[Pagination, Autoplay]}
-                            loop
-                            spaceBetween={50}
-                            slidesPerView={3}
-                            autoplay={{ delay: 5000 }}
-                            pagination={{ clickable: false }}
-                        >
+                        <div className='content-carousel'>
+
                             {projects.map(project => {
                                 return (
 
-                                    <SwiperSlide className='card' key={project.id} style={{ cursor: 'unset' }}>
+                                    <div className='card card-projects' key={project.id} style={{ cursor: 'unset' }}>
                                         <img className='project-image' src={project.image} alt={`${project.name} icon`} />
                                         <h1 className='project-h1'>{project.name}</h1>
                                         <div className='project-buttons'>
                                             <a className='link project-link' href={project.linkRepo} target='_blank'>Repo</a>
                                             <a className='link project-link' href={project.linkDeploy} target='_blank'>Deploy</a>
                                         </div>
-                                    </SwiperSlide>)
+                                        {project.maitenance && <span className='maitenance-span'>Em manutenção</span>}
+                                    </div>)
                             })}
-                        </Swiper>
+                        </div>
                     </section>
                     <DividerBottom />
                 </section>
@@ -155,6 +145,13 @@ export default function Home() {
             {certificateInfos.show && <CerticateModal certificateInfos={certificateInfos}
                 setCertificateInfos={setCertificateInfos}
             />}
+
+            {skillInfos.show && <SkillModal skillInfos={skillInfos}
+                setSkillInfos={setSkillInfos}
+            />}
+
+            {showMenu && <MenuMobile showMenu={showMenu}
+                setShowMenu={setShowMenu} />}
         </main>
     )
 }

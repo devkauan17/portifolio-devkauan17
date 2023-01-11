@@ -5,6 +5,7 @@ const projects = [
         image: 'https://f004.backblazeb2.com/file/portifolio-kauan/projects/portifolio-devkauan17.png',
         linkDeploy: 'https://github-finder-devkauan17.netlify.app/',
         linkRepo: 'https://github.com/devkauan17/portifolio-devkauan17',
+        maitenance: false
     },
     {
         id: 1,
@@ -12,6 +13,7 @@ const projects = [
         image: 'https://f004.backblazeb2.com/file/portifolio-kauan/projects/github-finder-devkauan17.png',
         linkDeploy: 'https://github-finder-devkauan17.netlify.app/',
         linkRepo: 'https://github.com/devkauan17/github-profile-finder',
+        maitenance: false
     },
     {
         id: 2,
@@ -19,6 +21,7 @@ const projects = [
         image: 'https://f004.backblazeb2.com/file/portifolio-kauan/projects/tasks-management-devkauan17.png',
         linkDeploy: 'https://tasks-management-devkauan17.netlify.app/',
         linkRepo: 'https://github.com/devkauan17/tasks-management',
+        maitenance: true
     },
 ]
 

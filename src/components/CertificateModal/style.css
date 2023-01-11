@@ -31,3 +31,16 @@
     background-color: var(--color-bg);
     padding: 1rem 3rem;
 }
+
+
+@media (max-width:1010px) {
+    .certificate-modal-image {
+        width: 90vw;
+    }
+}
+
+@media (max-width:600px) {
+    .certificate-modal-infos {
+        display: none;
+    }
+}
