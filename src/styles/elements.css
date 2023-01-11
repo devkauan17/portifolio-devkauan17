@@ -46,3 +46,19 @@
     transform: scale(1.1);
     box-shadow: 0px 5px 0px 0px var(--color-main);
 }
+
+.close-icon-modal {
+    cursor: pointer;
+    position: absolute;
+    right: 3.2rem;
+    top: 3.2rem;
+    width: 50px;
+}
+
+.modal-bg {
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(8px);
+    background-color: var(--black-blur);
+    z-index: 4;
+}

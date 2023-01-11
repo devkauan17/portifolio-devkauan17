@@ -1,4 +1,3 @@
-import { Modal } from '@mui/material'
 import './style.css'
 import closeIcon from '../../assets/close-icon.png';
 
@@ -10,11 +9,8 @@ export default function MenuMobile({ showMenu, setShowMenu }) {
 
     return (
 
-        <Modal
+        <div
             className='modal-bg center-align'
-            open={showMenu}
-            onClose={handleClose}
-
         >
 
             <ul className='mobile-ul vertical-align center-align'>
@@ -23,6 +19,6 @@ export default function MenuMobile({ showMenu, setShowMenu }) {
                 <li className='mobile-li'><a className='mobile-link' href="#projects" onClick={handleClose}>Projetos</a></li>
                 <li className='mobile-li'> <img src={closeIcon} alt='close-icon' onClick={handleClose} /></li>
             </ul>
-        </Modal>
+        </div>
     )
 }

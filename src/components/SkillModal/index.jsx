@@ -1,5 +1,5 @@
-import { Modal } from '@mui/material'
 import './style.css'
+import closeIcon from '../../assets/close-icon.png';
 
 export default function SkillModal({ skillInfos, setSkillInfos }) {
 
@@ -13,17 +13,18 @@ export default function SkillModal({ skillInfos, setSkillInfos }) {
 
     const skill = { ...skillInfos.content }
     return (
-        <Modal
+        <div
             className='modal-bg center-align'
-            open={skillInfos.show}
-            onClose={handleClose}
+
         >
+
+            <img className='close-icon-modal' src={closeIcon} alt='close icon' onClick={handleClose} />
             <div className='skill-modal'>
                 <h1 className='title-h1 gradient-text'>{skill.name}</h1>
                 <p className='paragraph-p'>
                     {skill.description}
                 </p>
             </div>
-        </Modal>
+        </div>
     )
 }

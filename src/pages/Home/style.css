@@ -53,7 +53,7 @@
 .apresentation-infos,
 .content-cards,
 .card {
-    box-shadow: 0px 14px 30px 5px rgba(0, 0, 0, 0.38);
+    box-shadow: var(--default-box-shadow);
     border-radius: var(--default-border-radius);
 
 }
