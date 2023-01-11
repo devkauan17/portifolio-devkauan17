@@ -1,0 +1,33 @@
+.modal-bg {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(8px);
+    background-color: var(--black-blur);
+}
+
+.certificate-modal {
+    position: relative;
+}
+
+.certificate-modal-image,
+.certificate-modal-infos {
+    border-radius: var(--default-border-radius);
+}
+
+.certificate-modal-image {
+    width: 60vw;
+    background-position: center;
+}
+
+.certificate-modal-infos .certificate-span {
+    width: fit-content;
+    font-size: 1.3rem;
+}
+
+.certificate-modal-infos {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    background-color: var(--color-bg);
+    padding: 1rem 3rem;
+}

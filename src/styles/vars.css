@@ -7,4 +7,5 @@ body {
     --color-bg-button: #080808;
     --gradient: linear-gradient(45deg, var(--color-main) 0%, var(--color-main-1) 54%);
     --default-border-radius: .6rem;
+    --black-blur: #00000033;
 }

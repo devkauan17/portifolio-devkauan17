@@ -9,8 +9,16 @@ import './style.css';
 import 'swiper/css/pagination';
 import certificates from '../../data/certificates';
 import projects from '../../data/projects';
+import { useState } from 'react';
+import CerticateModal from '../../components/CertificateModal';
 
 export default function Home() {
+
+    const [certificateInfos, setCertificateInfos] = useState({
+        show: false,
+        content: {}
+    })
+
     return (
         <main className='page'>
             <header className='page-header'>
@@ -95,11 +103,13 @@ export default function Home() {
                             {certificates.map(certificate => {
                                 return (
 
-                                    <SwiperSlide className='card' key={certificate.id}>
+                                    <SwiperSlide className='card' key={certificate.id} onClick={() => {
+                                        return setCertificateInfos({ show: true, content: { ...certificate } })
+                                    }}>
                                         <img className='certificate-image' src={certificate.image} alt={`${certificate.name} icon`} />
                                         <div className='certificate-infos'>
-                                            <h1 className='certificate-h1'>{certificate.name}</h1>
-                                            <h1 className='certificate-h1 certificate-conclusion-year'>{certificate.conclusionYear}</h1>
+                                            <span className='certificate-span'>{certificate.name}</span>
+                                            <span className='certificate-span certificate-conclusion-year'>{certificate.conclusionYear}</span>
                                         </div>
                                     </SwiperSlide>)
                             })}
@@ -119,13 +129,13 @@ export default function Home() {
                             loop
                             spaceBetween={50}
                             slidesPerView={3}
-                            autoplay={{ delay: 4000 }}
+                            autoplay={{ delay: 5000 }}
                             pagination={{ clickable: false }}
                         >
                             {projects.map(project => {
                                 return (
 
-                                    <SwiperSlide className='card' key={project.id}>
+                                    <SwiperSlide className='card' key={project.id} style={{ cursor: 'unset' }}>
                                         <img className='project-image' src={project.image} alt={`${project.name} icon`} />
                                         <h1 className='project-h1'>{project.name}</h1>
                                         <div className='project-buttons'>
@@ -136,13 +146,15 @@ export default function Home() {
                             })}
                         </Swiper>
                     </section>
-
                     <DividerBottom />
                 </section>
             </section>
             <footer className='page-footer center-align'>
                 <span className='footer-span'>Portifólio | Kauan Rodrigues</span>
             </footer>
+            {certificateInfos.show && <CerticateModal certificateInfos={certificateInfos}
+                setCertificateInfos={setCertificateInfos}
+            />}
         </main>
     )
 }
