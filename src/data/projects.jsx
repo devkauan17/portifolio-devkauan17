@@ -3,7 +3,7 @@ const projects = [
         id: 0,
         name: 'Portifólio',
         image: 'https://f004.backblazeb2.com/file/portifolio-kauan/projects/portifolio-devkauan17.png',
-        linkDeploy: 'https://github-finder-devkauan17.netlify.app/',
+        linkDeploy: 'https://portifolio-devkauan17.netlify.app/',
         linkRepo: 'https://github.com/devkauan17/portifolio-devkauan17',
         maitenance: false
     },
